@@ -33,7 +33,7 @@ repeat {
     listen = Int(arc4random_uniform(2))
     
     if listen == 0 {
-        print("B:...")
+    print("B:...")
     }
     else {
         print("B:有聽到")
