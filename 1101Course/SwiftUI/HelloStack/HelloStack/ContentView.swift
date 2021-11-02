@@ -11,6 +11,23 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TitleView()
+            HStack {
+                FruitView(imageName: "tomato")
+                FruitView(imageName: "banana")
+                FruitView(imageName: "guava")
+//                TomatoView()
+//                BananaView()
+            }
+            ZStack {
+                FishView()
+                Text("保存期限:2025/12/31")
+                    .font(.system(size: 20))
+                    .foregroundColor(.yellow)
+                    .padding(.all, 5)
+                    .background(Color.black)
+                    .opacity(0.7)
+                    .offset(x: 40, y: 20)
+            }
         }
     }
 }
@@ -31,4 +48,68 @@ struct TitleView: View {
                 .foregroundColor(Color(red: 29/255, green: 40/255, blue: 192/255))
         })
     }
+}
+
+struct FruitView: View {
+    var imageName:String
+    var body: some View {
+        VStack {
+            Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 200, alignment: .center)
+            Text(imageName.capitalized)
+                .fontWeight(.bold)
+                .font(.system(size: 25))
+        }
+        .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+    }
+}
+
+//struct TomatoView: View {
+//    var body: some View {
+//        VStack {
+//            Image("tomato")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: UIScreen.screenWidth / 2 - 20, alignment: .center)
+//            Text("Tomato")
+//                .fontWeight(.bold)
+//                .font(.system(size: 30))
+//        }
+//    }
+//}
+//
+//struct BananaView: View {
+//    var body: some View {
+//        VStack {
+//            Image("banana")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: UIScreen.screenWidth / 2 - 20, alignment: .center)
+//            Text("Banana")
+//                .fontWeight(.bold)
+//                .font(.system(size: 30))
+//        }.padding(.all, 2)
+//    }
+//}
+
+struct FishView: View {
+    var body: some View {
+        VStack {
+            Image("fish")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.all, 15)
+            Text("Fish")
+                .fontWeight(.bold)
+                .font(.system(size: 30))
+        }
+    }
+}
+
+extension UIScreen {
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
 }
