@@ -23,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             MapView(currentRestaurant: $currentRestaurant)
-            Text("\(currentRestaurant.name)")
+            Text("目前位置")
                 .frame(height: 50, alignment: .center)
                 .font(.title)
         }
