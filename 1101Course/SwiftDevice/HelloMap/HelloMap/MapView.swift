@@ -40,7 +40,7 @@ struct MapView: UIViewRepresentable {
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
-        //view.delegate = context.coordinator
+        view.delegate = context.coordinator
         //view.addAnnotations(landmarks)
         
         /*
